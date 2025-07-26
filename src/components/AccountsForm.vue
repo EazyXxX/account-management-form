@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Plus, Delete } from '@element-plus/icons-vue'
+import { Plus, Delete, QuestionFilled } from '@element-plus/icons-vue'
 
 const accounts = ref([
   { label: '', type: 'local', login: '', password: '' },
@@ -53,10 +53,15 @@ const removeAccount = (idx: number) => {
     </div>
     <el-form label-position="top">
       <el-row class="accounts-form-labels" gutter="12">
-        <el-col :span="6">Метки</el-col>
-        <el-col :span="5">Тип записи</el-col>
-        <el-col :span="5">Логин</el-col>
-        <el-col :span="5">Пароль</el-col>
+        <el-col :span="6">
+          <span>Метки</span>
+          <el-tooltip placement="top" content="Для указания нескольких меток используйте ; как разделитель.">
+            <el-icon class="meta-hint-icon"><QuestionFilled /></el-icon>
+          </el-tooltip>
+        </el-col>
+        <el-col :span="5"><span>Тип записи</span></el-col>
+        <el-col :span="isLocalType(accounts[0]) ? 5 : 10"><span>Логин</span></el-col>
+        <el-col v-if="isLocalType(accounts[0])" :span="5"><span>Пароль</span></el-col>
         <el-col :span="2"></el-col>
       </el-row>
       <el-row v-for="(account, idx) in accounts" :key="idx" :gutter="12" class="accounts-form-row">
@@ -142,5 +147,41 @@ const removeAccount = (idx: number) => {
 
 .accounts-form-item-placeholder {
   min-height: 32px;
+}
+
+.meta-hint {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.meta-form-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.meta-hint-icon {
+  color: #909399;
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.marks-label {
+  
+}
+
+.meta-input-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+}
+
+.accounts-form-labels .el-col {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 </style> 
