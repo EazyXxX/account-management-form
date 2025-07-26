@@ -1,39 +1,47 @@
-# .
+# Account Management Form (Vue 3 + Pinia + Element Plus)
 
-This template should help get you started developing with Vue 3 in Vite.
+## Описание
 
-## Recommended IDE Setup
+Тестовое задание: форма управления учетными записями с поддержкой добавления, редактирования, удаления и валидации. Все данные сохраняются в localStorage через Pinia.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Технологии
+- **Vue 3** (Composition API, TypeScript)
+- **Pinia** (стейт-менеджер, persisted state)
+- **Element Plus** (UI-компоненты)
+- **Sass (SCSS)** (стилизация)
+- **Vite** (сборка)
 
-## Type Support for `.vue` Imports in TS
+## Возможности
+- Добавление, удаление, редактирование учетных записей
+- Валидация обязательных полей (логин, пароль)
+- Подсказки и тултипы для пользователя
+- Сохранение данных между сессиями (localStorage)
+- Современный UI и плавные анимации
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Запуск проекта
 
-## Customize configuration
+1. **Установите зависимости:**
+   ```bash
+   npm install
+   ```
+2. **Запустите dev-сервер:**
+   ```bash
+   npm run dev
+   ```
+3. Откройте [http://localhost:5173](http://localhost:5173) в браузере
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Структура проекта
+- `src/components/AccountsForm.vue` — основной компонент формы
+- `src/stores/accounts.ts` — Pinia store для учетных записей
+- `src/constants/accounts.ts` — константы и лимиты
+- `src/assets/` — стили (SCSS)
 
-## Project Setup
+## Примечания
+- Максимум 10 учетных записей
+- Метки разделяются через `;` и преобразуются в массив объектов
+- Пароль обязателен только для типа "Локальная"
+- Все поля, кроме метки, обязательны к заполнению
 
-```sh
-npm install
-```
+---
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+**Автор:** EazyXxX
