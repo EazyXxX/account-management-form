@@ -1,5 +1,7 @@
 # Account Management Form (Vue 3 + Pinia + Element Plus)
 
+Демо приложения доступно по ссылке: https://account-management-form.netlify.app/
+
 ## Описание
 
 Тестовое задание: форма управления учетными записями с поддержкой добавления, редактирования, удаления и валидации. Все данные сохраняются в localStorage через Pinia.
